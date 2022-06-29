@@ -1,0 +1,8 @@
+@font-face {
+  font-family: Marvel;
+  src: url('../../../../assets/fonts/AVENGEANCE.otf');
+}
+
+.logo{
+  font-family: Marvel, sans-serif;
+}
