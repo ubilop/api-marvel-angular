@@ -1,10 +1,12 @@
+<app-header></app-header>
 <div class="container" id="characters" style="background-color: rgb(40, 49, 54)">
   <div class="lg-marvel pt-3">
-    <img src="../../../../assets/img/marvel-logo.png" style="width: 200px;" alt="">
+    <img src="../../../assets/img/marvel-logo.png" style="width: 200px;" alt="">
   </div>
 
   <div class="row row-cols-1 row-cols-md-4 g-4 mt-3">
     <div class="col" *ngFor="let character of characters">
+      <a href="character/{{character.id}}" data-toggle="lightbox" data-gallery="example-gallery">
       <div class="card animate__bounceIn img-transform">
         <a href="character/{{character.id}}" data-toggle="lightbox" data-gallery="example-gallery">
           <img
@@ -22,17 +24,9 @@
          <!--<p class="card-text">{{ character.description }}</p>-->
         </div>
       </div>
+    </a>
     </div>
   </div>
 
-  <div class="buttons">
-    <button class="btn-hover color" routerLink="chareters-all">VISUALIZAR TODOS</button>
-  </div>
 
 </div>
-
-<div class="container-fluid gradient">
-
-</div>
-
-

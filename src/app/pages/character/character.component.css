@@ -1,0 +1,19 @@
+ *{
+  color: rgb(53, 53, 53);
+  background-color: rgb(228, 228, 228);
+
+}
+
+html{
+
+  height: 100vh;
+
+}
+
+.img-character{
+  border-radius: 50%;
+}
+
+.btnAddTeam{
+  background: linear-gradient(45deg, #fca925, #ee1d5f, #ec5252);
+}

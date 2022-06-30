@@ -2,15 +2,43 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, retry } from 'rxjs/operators';
 
+import { Ruta } from '../../config';
+
 @Injectable({
   providedIn: 'root',
 })
 export class MarvelapiService {
-  constructor(public http: HttpClient) {}
+
+  public url: string;
+  public key: string;
+  public hash: string;
+
+  constructor(public http: HttpClient) {
+
+    this.url = Ruta.url;
+    this.key = Ruta.key;
+    this.hash = Ruta.hash;
+  }
+
+
+  public getCharacter(id:string) {
+
+    let url =
+      `${this.url}characters/${id}?ts=1000&apikey=${this.key}&hash=${this.hash}`;
+
+
+      return this.http.get(url).pipe(
+        map((res: any) => {
+          return res;
+        }),
+        retry(5)
+      );
+    }
 
   public getCharacters() {
+
     let url =
-      'https://gateway.marvel.com/v1/public/characters?ts=1000&apikey=8bd88b2b7a47152737745824515fd13d&hash=81057aea1a80278beef337c7a2adf81c' +
+      `${this.url}characters?ts=1000&apikey=${this.key}&hash=${this.hash}` +
       '&offset=' +
       '0' +
       '&limit=' +
@@ -24,5 +52,22 @@ export class MarvelapiService {
         retry(5)
       );
     }
+
+    public getCharactersAll() {
+      let url =
+        `${this.url}characters?ts=1000&apikey=${this.key}&hash=${this.hash}` +
+        '&offset=' +
+        '0' +
+        '&limit=' +
+        '100';
+
+
+        return this.http.get(url).pipe(
+          map((res: any) => {
+            return res;
+          }),
+          retry(5)
+        );
+      }
   }
 

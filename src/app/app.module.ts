@@ -11,6 +11,8 @@ import { HeaderComponent } from './pages/home/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SlideComponent } from './pages/home/slide/slide.component';
 import { CharactersComponent } from './pages/home/characters/characters.component';
+import { CharetersAllComponent } from './pages/chareters-all/chareters-all.component';
+import { CharacterComponent } from './pages/character/character.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CharactersComponent } from './pages/home/characters/characters.componen
     HeaderComponent,
     HomeComponent,
     SlideComponent,
-    CharactersComponent
+    CharactersComponent,
+    CharetersAllComponent,
+    CharacterComponent
   ],
   imports: [
     BrowserModule,

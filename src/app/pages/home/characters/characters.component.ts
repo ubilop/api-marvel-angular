@@ -10,6 +10,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 export class CharactersComponent implements OnInit {
 
   public characters: Array<any> = [];
+  public description:any = "";
 
   constructor(private character: MarvelapiService) { }
 

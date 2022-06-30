@@ -4,10 +4,6 @@
   justify-content: center;
 }
 
-.controller{
-  position: absolute!important;
-}
-
 .card{
   margin: 10px 0;
 }
@@ -18,12 +14,15 @@
   filter: invert(1);
   cursor: pointer;
 
+
 }
 
-.gradient{
-
-  background: rgb(30,193,167);
-  background: linear-gradient(90deg, rgba(30,193,167,1) 0%, rgba(151,193,30,1) 100%);
-  height: 100px;
+.flex-space{
+  display: flex;
+  justify-content: space-between;
 }
 
+.flex-end{
+  display: flex;
+  justify-content: end;
+}
