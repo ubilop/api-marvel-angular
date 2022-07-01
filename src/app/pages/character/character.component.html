@@ -13,13 +13,13 @@
       <div class="col-sm-7">
         <h1>{{ character.name }}</h1>
         <p>{{ character.description }}</p>
-        <p>Fecha: {{ character.modified }}</p>
+        <p>Fecha: {{ character.modified | date }}</p>
         <div class="col-sm-6">
 
         </div>
         <div class="col-sm-6">
           <div class="buttons">
-            <button class="btn-hover color" routerLink="chareters-all">Agregar a mi Equipo</button>
+            <button type="button" class="btn-hover color addTeam" (click)="open()">Agregar a mi Equipo</button>
           </div>
         </div>
       </div>
@@ -29,3 +29,5 @@
 </div>
 
 </article>
+
+<app-footer></app-footer>

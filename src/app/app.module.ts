@@ -13,6 +13,8 @@ import { SlideComponent } from './pages/home/slide/slide.component';
 import { CharactersComponent } from './pages/home/characters/characters.component';
 import { CharetersAllComponent } from './pages/chareters-all/chareters-all.component';
 import { CharacterComponent } from './pages/character/character.component';
+import { HighlightDirective } from './directives/highlight.directive';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CharacterComponent } from './pages/character/character.component';
     SlideComponent,
     CharactersComponent,
     CharetersAllComponent,
-    CharacterComponent
+    CharacterComponent,
+    HighlightDirective,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

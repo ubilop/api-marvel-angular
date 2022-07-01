@@ -3,6 +3,9 @@ import { MarvelapiService } from 'src/app/services/marvelapi.service';
 import { ActivatedRoute } from '@angular/router';
 import {NgForm} from '@angular/forms';
 
+declare var jQuery: any;
+declare var $: any;
+
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
@@ -10,10 +13,13 @@ import {NgForm} from '@angular/forms';
 })
 export class CharacterComponent implements OnInit {
 
+
+
   public characterJson:any;
 	public renderCharacter:any;
 	public contentCharacter:any;
   public id:any;
+  public description:any;
   public characters: Array<any> = [];
 
 
@@ -40,6 +46,7 @@ export class CharacterComponent implements OnInit {
       this.marvelapiService.getCharacter(this.id).subscribe((res) => {
         console.log('Respuesta', res);
         this.characters = res.data.results;
+        this.description = res.data.results['description'];
       });
 
 			//this.contentCharacter = this.renderCharacter.content;
@@ -51,7 +58,18 @@ export class CharacterComponent implements OnInit {
 
   ngOnInit(): void {
 
+    $('.addTeam').on('click', function(){
 
+      console.log('A la verga');
+
+    })
+
+
+  }
+
+  public open() {
+    console.log('A la verga', this.id);
+    console.log('description', this.characters[0]['description']);
   }
 
 }

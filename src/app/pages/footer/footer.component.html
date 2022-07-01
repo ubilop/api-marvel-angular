@@ -1,0 +1,72 @@
+
+  <!--=====================================
+  FORMULARIO
+  ======================================-->
+
+  <div class="container-fluid p-0 bg-white" id="formulario">
+
+    <h2 class="text-uppercase pt-5 text-muted text-center">Arma tu equipo Marvel</h2>
+
+    <div class="container">
+
+      <form class="bg-light p-4 needs-validation"  novalidate>
+
+        <h4 class="bg-dark text-white text-center p-2">Define tu equipo</h4>
+
+        <div class="form-group">
+
+          <label for="usuario">Ingrese su Nombre de Equipo</label>
+
+          <input type="text" id="usuario" class="form-control" placeholder="Escriba su usuario con mínimo 2 caracteres, máximo 6 caracteres sin usar números" minlength="2" maxlength="6" pattern="(?=.*[A-Za-z]).{2,6}" name="usuarios"  required>
+
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="password">Ingrese Descripción de Equipo</label>
+
+          <input type="password" id="password" class="form-control" placeholder="Escriba su contraseña con mínimo 8 caracteres y debe incluir letras en mayúscula, en minúscula y números" minlength="8"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="password"  required>
+
+          <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="email">Ingrese su correo electrónico:</label>
+
+          <input type="email" id="email" class="form-control"  placeholder="Escriba su correo" name="email"  required>
+
+          <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+
+        </div>
+
+
+
+          <div class="form-group form-check">
+          <label class="form-check-label">
+            <input class="form-check-input terminos" type="checkbox" required>
+              <span class="check"></span>Acepto términos y condiciones.
+            <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">Please fill out this field.</div>
+          </label>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+<div class="container-fluid gradient">
+
+</div>
