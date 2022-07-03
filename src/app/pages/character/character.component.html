@@ -2,6 +2,10 @@
 <article>
 <div class="container">
 
+  <div class="preload flex-center pt-5">
+    <img src="../../../../assets/img/loader2.gif" style="width: 50px;">
+  </div>
+
   <div class="row pt-5 pb-5">
     <div class="col flex-center" *ngFor="let character of characters">
       <div class="col-sm-12 col-md-5">
@@ -11,7 +15,7 @@
           />
       </div>
       <div class="col-sm-7">
-        <h1>{{ character.name }}</h1>
+        <h1 class="name-character">{{ character.name }}</h1>
         <p>{{ character.description }}</p>
         <p>Fecha: {{ character.modified | date }}</p>
         <div class="col-sm-6">
@@ -19,7 +23,7 @@
         </div>
         <div class="col-sm-6">
           <div class="buttons">
-            <button type="button" class="btn-hover color addTeam" (click)="open()">Agregar a mi Equipo</button>
+            <button type="button" class="btn-hover color addTeam" style="color:white" (click)="addCharacter()">Agregar a mi Equipo</button>
           </div>
         </div>
       </div>

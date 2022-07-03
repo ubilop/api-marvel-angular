@@ -1,10 +1,8 @@
 /*=============================================
-ESQUEMA PARA EL MODELO CONECTOR A MONGODB
+SCHEMA MONGODB
 =============================================*/
 const mongoose = require('mongoose');
 
-//Requerimos el módulo para validaciones únicas
-//const uniqueValidator = require('mongoose-unique-validator');
 
 let Schema = mongoose.Schema;
 

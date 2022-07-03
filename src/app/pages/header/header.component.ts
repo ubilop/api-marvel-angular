@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
 
       $('.login').attr('data-target', '');
       $('.login').attr('data-toggle', '');
-      $('.login').html('Bienvenido:  '+ user);
+      $('.login').html(user);
       $('.logout').attr('style', 'display:block');
 
     }
@@ -136,7 +136,7 @@ export class HeaderComponent implements OnInit {
 
             $('.login').attr('data-target', '');
             $('.login').attr('data-toggle', '');
-            $('.login').html('Bienvenido:  '+ user['user']);
+            $('.login').html('user["user"]');
             $('.modal').modal('hide');
 
             $('#user').val(user['user']);

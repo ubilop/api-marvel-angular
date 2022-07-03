@@ -3,23 +3,28 @@
     <img src="../../../../assets/img/marvel-logo.png" style="width: 200px;" alt="">
   </div>
 
+  <div class="preload lg-marvel">
+    <img src="../../../../assets/img/loader2.gif" style="width: 50px;">
+  </div>
+
   <div class="row row-cols-1 row-cols-md-4 g-4 mt-3">
     <div class="col" *ngFor="let character of characters">
       <div class="card animate__bounceIn img-transform">
         <a href="character/{{character.id}}" data-toggle="lightbox" data-gallery="example-gallery">
           <img
             src="{{ character.thumbnail.path }}.{{ character.thumbnail.extension }}"
-            class="card-img-top img-fluid"
+            class="card-img-top img-fluid imgCharacter"
             style="height: 300px"
           />
         </a>
         <div class="card-body flex-space">
-          <p class="card-title">{{ character.name }}   </p>
+          <p class="card-title nameCharacter">{{ character.name }}   </p>
           <span class="flex-end">
-            <i class="fa fa-list-check" style="padding: 0 5px;"></i>
+            <a href="character/{{character.id}}" characterName="" characterId="" characterImg="" ><i class="fa fa-list-check" style="padding: 0 5px;"></i></a>
             <a href="character/{{character.id}}" data-toggle="lightbox" data-gallery="example-gallery"><i class="fa fa-eye"></i></a>
           </span>
-         <!--<p class="card-text">{{ character.description }}</p>-->
+         <p class="card-text character-description" style="display: none;">{{ character.description }}</p>
+         <p class="card-text character-id" style="display: none;">{{ character.id }}</p>
         </div>
       </div>
     </div>

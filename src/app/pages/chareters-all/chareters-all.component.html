@@ -4,16 +4,18 @@
     <img src="../../../assets/img/marvel-logo.png" style="width: 200px;" alt="">
   </div>
 
+  <div class="preload lg-marvel">
+    <img src="../../../../assets/img/loader2.gif" style="width: 50px;">
+  </div>
+
   <div class="row row-cols-1 row-cols-md-4 g-4 mt-3">
     <div class="col" *ngFor="let character of characters">
-      <a href="character/{{character.id}}" data-toggle="lightbox" data-gallery="example-gallery">
       <div class="card animate__bounceIn img-transform">
         <a href="character/{{character.id}}" data-toggle="lightbox" data-gallery="example-gallery">
           <img
             src="{{ character.thumbnail.path }}.{{ character.thumbnail.extension }}"
             class="card-img-top img-fluid"
-            style="height: 300px"
-          />
+            style="height: 300px"/>
         </a>
         <div class="card-body flex-space">
           <p class="card-title">{{ character.name }}   </p>
@@ -24,7 +26,6 @@
          <!--<p class="card-text">{{ character.description }}</p>-->
         </div>
       </div>
-    </a>
     </div>
   </div>
 

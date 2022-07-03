@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { map, retry } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Ruta } from '../../config';
 
@@ -13,13 +13,19 @@ export class MarvelapiService {
   public url: string;
   public key: string;
   public hash: string;
+  public api: string;
 
   constructor(public http: HttpClient) {
 
     this.url = Ruta.url;
     this.key = Ruta.key;
     this.hash = Ruta.hash;
+    this.api = Ruta.api;
   }
+
+      /*=============================================
+   	OBSERVABLE LISTADO DE PERSONAJES APIMARVEL
+   	=============================================*/
 
   getAllCharacters () : Observable<any> {
     let url =
@@ -33,7 +39,9 @@ export class MarvelapiService {
         );
   }
 
-
+    /*=============================================
+   	OBSERVABLE DE PERSONAJE APIMARVEL
+   	=============================================*/
   public getCharacter(id:string) : Observable<any> {
 
     let url =
@@ -82,5 +90,43 @@ export class MarvelapiService {
           retry(5)
         );
       }
+
+    /*=============================================
+   	PETICIÓN POST API MONGODB
+   	=============================================*/
+
+   	saveTeam(listTeam){
+
+      const headers = new HttpHeaders();
+
+     console.log('listTeam', listTeam);
+
+      return this.http.post(`${this.api}/create-teams`, listTeam, {headers});
+
+    }
+
+    getCharactersTeam(listTeam){
+
+      const headers = new HttpHeaders();
+
+      console.log('listTeam', listTeam);
+
+      return this.http.post(`${this.api}/get-teams`, listTeam, {headers});
+
+    }
+
+   /*=============================================
+    PETICIÓN DELETE API MONGODB
+    =============================================*/
+
+    deleteTeam(listTeam){
+
+     const headers = new HttpHeaders();
+
+    console.log('listTeam', listTeam['id']);
+
+     return this.http.delete(`${this.api}/delete-teams/${listTeam['id']}`, {headers});
+
+   }
   }
 

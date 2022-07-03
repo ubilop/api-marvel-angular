@@ -3,7 +3,7 @@
   FORM REGISTER TEAM
   ======================================-->
 
-  <div class="container-fluid p-0 bg-white" id="formulario">
+  <div class="container-fluid p-0 bg-white" id="myteam">
 
     <h2 class="text-uppercase pt-5 text-muted text-center">Arma tu equipo Marvel</h2>
 
@@ -50,6 +50,28 @@
         <button type="submit" class="btn btn-primary btn-block btnSaveTeam">Enviar</button>
 
       </form>
+
+      <div class="row row-cols-1 row-cols-md-6 g-4 mt-3 mb-1">
+        <div class="col" *ngFor="let character of characters">
+          <div class="card animate__bounceIn img-transform">
+              <img
+                src="{{ character.ruta }}"
+                class="card-img-top img-fluid imgCharacter"
+                style="height: 200px"
+              />
+
+            <div class="card-body flex-space">
+              <p class="card-title nameCharacter">{{ character.name }}   </p>
+              <span class="flex-end">
+                <span (click)="deleteTeam(character._id)" id="{{ character._id }}" style="color:red; cursor:pointer">
+                  X
+                </span>
+              </span>
+              <input type="hidden" class="inputId" id="{{ character._id }}" value="{{ character._id }}" >
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
 

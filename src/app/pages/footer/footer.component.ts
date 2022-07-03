@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from 'src/app/services/auth.service';
+import { MarvelapiService } from 'src/app/services/marvelapi.service';
 
 //Esto es la clase que se necesita para trabajar con formularios
 import {NgForm} from '@angular/forms';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 declare var jQuery:any;
 declare var $:any;
@@ -20,15 +22,24 @@ export class FooterComponent implements OnInit {
 
   authForm ! : FormGroup;
 
+
+  public listTeam:any;
   public listUser:any;
 	public userCreate:any;
 	public errorUser:boolean = false;
 	public validateCreate:boolean = false;
 	public mensajeApi:any;
   public id:any = null;
+  public characterJson:any;
+	public renderCharacter:any;
+	public contentCharacter:any;
+  public characters: Array<any> = [];
+  public idss:any = null;
 
   constructor(private readonly fb: FormBuilder,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private marvelapiService: MarvelapiService) {
+
 
 
 
@@ -67,6 +78,21 @@ export class FooterComponent implements OnInit {
 
         $('.btnSaveTeam').html('Actualizar');
         this.id = login;
+
+        this.listTeam = {
+          user:this.id
+        }
+
+
+        this.marvelapiService.getCharactersTeam(this.listTeam).subscribe( ( res ) => {
+
+          this.characterJson = res;
+          console.log('res',res);
+          this.characters = res['data'];
+
+        })
+
+
 
       }
 
@@ -110,6 +136,68 @@ export class FooterComponent implements OnInit {
       })
   }
 
+  deleteTeam(id:any){
+
+
+
+    console.log('this.characterId', id);
+
+    if(id != null){
+
+      this.listUser = {
+        id:id,
+      }
+
+        this.marvelapiService.deleteTeam(this.listUser)
+      .subscribe( respuesta =>{
+
+        console.log('respuesta', respuesta);
+
+        this.userCreate = respuesta;
+
+
+
+        if(this.userCreate["status"] == 200){
+
+
+
+          this.validateCreate = true;
+          this.errorUser = false;
+          this.mensajeApi = this.userCreate["mensaje"];
+
+          Swal.fire({
+            title   : 'El Pesonaje se ha eliminado correctamente',
+            text    : this.mensajeApi,
+            icon    : 'success',
+            timer   : 5000
+          });
+
+          setTimeout(() => {
+
+            window.location.reload();
+
+          }, 2000);
+
+        }else{
+
+          this.errorUser = true;
+          this.validateCreate = false;
+          this.mensajeApi = this.userCreate["mensaje"];
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: this.mensajeApi
+            })
+
+        }
+
+      })
+    }
+
+
+  }
+
   	/*=================================
 	Recibir formulario login
 	===================================*/
@@ -146,11 +234,24 @@ export class FooterComponent implements OnInit {
           this.errorUser = false;
           this.mensajeApi = this.userCreate["mensaje"];
 
+          Swal.fire({
+            title   : 'Peteción Exitosa',
+            text    : this.mensajeApi,
+            icon    : 'success',
+            timer   : 5000
+          });
+
         }else{
 
           this.errorUser = true;
           this.validateCreate = false;
           this.mensajeApi = this.userCreate["mensaje"];
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: this.mensajeApi
+            })
 
         }
 
@@ -184,18 +285,37 @@ export class FooterComponent implements OnInit {
           this.errorUser = false;
           this.mensajeApi = this.userCreate["mensaje"];
 
+          Swal.fire({
+            title   : 'Peteción Exitosa',
+            text    : this.mensajeApi,
+            icon    : 'success',
+            timer   : 5000
+          });
+
 
           localStorage.setItem('user', team['user']);
           localStorage.setItem('password', team['password']);
           localStorage.setItem('description', team['description']);
 
-          window.location.reload();
+          setTimeout(() => {
+
+            window.location.reload();
+
+          }, 2000);
+
+
 
         }else{
 
           this.errorUser = true;
           this.validateCreate = false;
           this.mensajeApi = this.userCreate["mensaje"];
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: this.mensajeApi
+            })
 
         }
 

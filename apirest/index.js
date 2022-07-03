@@ -36,6 +36,8 @@ ROUTES
 
 app.use( require('./routes/users.route'));
 
+app.use( require('./routes/teams.route'));
+
 
 /*=============================================
 CONEX DB

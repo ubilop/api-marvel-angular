@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MarvelapiService } from '../../../services/marvelapi.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 
+declare var jQuery:any;
+declare var $:any;
+
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
@@ -19,6 +22,12 @@ export class CharactersComponent implements OnInit {
     this.character.getCharacters().subscribe((res) => {
       console.log('Respuesta', res);
       this.characters = res.data.results;
+
+      setTimeout(() => {
+
+        $('.preload').attr('style', 'display:none;')
+
+      }, 300);
     });
   }
 

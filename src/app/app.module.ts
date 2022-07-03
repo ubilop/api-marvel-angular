@@ -19,6 +19,7 @@ import { CharetersAllComponent } from './pages/chareters-all/chareters-all.compo
 import { CharacterComponent } from './pages/character/character.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { FooterComponent } from './pages/footer/footer.component';
+import { TeamsService } from './services/teams.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FooterComponent } from './pages/footer/footer.component';
   ],
   providers: [
     MarvelapiService,
-    AuthService
+    AuthService,
+    TeamsService
   ],
   bootstrap: [AppComponent]
 })
