@@ -4,10 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { MarvelapiService } from './services/marvelapi.service';
-import {NgxPaginationModule} from 'ngx-pagination';
-import { HeaderComponent } from './pages/home/header/header.component';
+import { AuthService } from './services/auth.service';
+import { NgxPaginationModule} from 'ngx-pagination';
+import { HeaderComponent } from './pages/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SlideComponent } from './pages/home/slide/slide.component';
 import { CharactersComponent } from './pages/home/characters/characters.component';
@@ -32,10 +36,13 @@ import { FooterComponent } from './pages/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
-    MarvelapiService
+    MarvelapiService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

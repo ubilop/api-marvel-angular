@@ -1,0 +1,16 @@
+@font-face {
+  font-family: Marvel;
+  src: url('../../../assets/fonts/AVENGEANCE.otf');
+}
+
+.logo{
+  font-family: Marvel, sans-serif;
+}
+
+.modal-content{
+
+  color: black;padding: 0 4rem;
+  background: linear-gradient( rgb(255 255 255), rgb(243, 243, 243)) no-repeat center center;
+  background-size: cover;
+
+}

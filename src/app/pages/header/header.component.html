@@ -1,0 +1,75 @@
+<!--=====================================
+HEADER Y NAV
+======================================-->
+
+<header class="container-fluid bg-light shadow pb-2" id="inicio">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light container">
+
+    <a class="navbar-brand text-center" href="#">
+
+      <h3 class="logo">MarvelTeam App</h3>
+
+    </a>
+
+    <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav ml-auto bg-light">
+
+        <li class="nav-item">
+
+          <a class="nav-link d-none d-lg-block" href="#top"><i class="fa-solid fa-house"></i></a>
+
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="chareters-all">Personajes</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link login" style="cursor: pointer" data-toggle="modal" data-target="#myModal">Sign-In</a>
+        </li>
+
+        <li class="nav-item logout" style="display:none;">
+          <a class="nav-link" (click)="logout()" style="cursor:pointer">Logout</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+<!-- Modal1 -->
+<div id="myModal" class="modal fade font-form" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content" >
+
+      <div class="modal-header">
+        <h5>Iniciar Sesion</h5>
+        <button type="button" class="close" data-dismiss="modal">X</button>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="authForm" (ngSubmit)="userLogin()" novalidate>
+          <div class="form-group">
+            <label for="name">Nombre de Equipo:</label>
+            <input formControlName="user" type="text" class="form-control" id="user" required="">
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input formControlName="password" type="password" class="form-control" id="password" required="">
+          </div>
+          <div style="display: flex;justify-content: flex-end;">
+            <button type="submit" class="btn btn-default btn-primary btnLogin" >Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
